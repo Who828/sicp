@@ -12,6 +12,6 @@
   (iter-loop 1 b n))
 
 (define (iter-loop a b n)
-   (cond ((= n 1) a)
-            ((even? n) (iter-loop (* a (square b)) b (/ n 2)))
+   (cond ((= n 0) a)
+            ((even? n) (iter-loop a (square b) (/ n 2)))
             (else (iter-loop (* a b) b (- n 1)))))
