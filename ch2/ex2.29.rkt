@@ -1,20 +1,20 @@
-(define (make-mobile left right)
-     (list left right))
+(define (make-mobile left right) (cons left right))
+         
 
 (define (make-branch length structure)
-     (list length structure))
+           (cons length structure))
 
 (define (left-branch mobile)
   (car mobile))
 
 (define (right-branch mobile)
-  (car (cdr mobile)))
+  (cdr mobile))
 
 (define (branch-length branch)
   (car branch))
 
 (define (branch-structure branch)
-  (car (cdr branch)))
+  (cdr branch))
 
 (define (total-weight mobile)
   (+ (branch-weight (left-branch mobile))
