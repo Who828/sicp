@@ -1,0 +1,11 @@
+(define (rand m)
+  (let ((x random-init))
+  (define generate (lambda ()
+                       (set! x (random x))
+                       x))
+  (define (reset new-value) (set! x new-value) x)
+  (case m
+    (`generate (generate))
+    (`reset reset)
+    (else (error "Bad command")))))
+(define random-init 10000000)
