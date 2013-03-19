@@ -1,0 +1,17 @@
+(define (last-pair x)
+  (if (null? (cdr x)) x (last-pair (cdr x))))
+
+(define (cycle? x)
+  (let ((aux `()))
+    (define (cycle-iter z)
+      (cond ((null? z) #f)
+            ((memq (car z) aux) #t)
+            (else (if (null? aux)
+                      (set! aux (list (car z)))
+                      (set-cdr! (last-pair aux) (list (car z))))
+                  (cycle-iter (cdr z)))))
+    (cycle-iter x)))
+
+(define (make-cycle x)
+  (set-cdr! (last-pair x) x)
+  x)
